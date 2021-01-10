@@ -1,0 +1,19 @@
+.rect-large{
+  width: max(100px, 15vw);
+  height: max(100px, 15vw);
+}
+.rect-big{
+  width: max(70px, 12vw);
+  height: max(70px, 12vw);
+}
+
+.rect-medium{
+  overflow: visible;
+  width: max(50px, 5vw);
+  height: max(50px, 5vw);
+}
+
+.rect{
+  position: absolute;
+  background: linear-gradient(90deg, #20E3B2 0%, #12BDBD 100%);
+}

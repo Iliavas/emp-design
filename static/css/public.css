@@ -1,0 +1,22 @@
+*{
+  overflow: scroll;
+  padding:0;
+  margin:0;
+  overflow-x:hidden;
+  transition:0.3s;
+  outline: none;
+}
+
+::-webkit-scrollbar{
+  display:none;
+}
+html::-webkit-scrollbar{
+  display: block;
+}
+html{
+  background-color: black;
+
+}
+body{
+  overflow-y: scroll;
+}

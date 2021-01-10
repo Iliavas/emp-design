@@ -1,0 +1,23 @@
+.app-grad{
+  width:100vw;
+  height: 12px;
+  background: linear-gradient(90deg, #20E3B2 0%, #12BDBD 100%);
+}
+#scene{
+  transition:0s;
+}
+
+.resources{
+  margin-top: max(1.7vw, 15px);
+  margin-left: max(1.8vw, 15px);
+  margin-right: max(1.8vw, 15px);
+}
+
+.head-img{
+  width: 2vw;
+  min-width: 30px;
+}
+
+.df{
+  float: right;
+}

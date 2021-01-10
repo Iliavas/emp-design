@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content_links %}
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock %}
+
+{% block content %}
+    <style>
+    *{
+        transition: 0.3s;
+    }
+    </style>
+    <div class="start-business-part scene">
+    <div data-depth="0.2" class="first-rect-position rect-large">
+      <div class="rect rect-large blur30 rotate-half"></div>
+    </div>
+    <div data-depth="0.3" class="second-rect-position rect-medium">
+      <div class="rect rect-medium blur5 rotate-half"></div>
+    </div>
+    <div data-depth="0.1" class="start-business-text">
+      Start your <span style="color:#12BDBD">business</span>
+    </div>
+
+  </div>
+  <div class="rect rect-big blur2" id="decor-rect-trans"></div>
+  <div class="with-us-block scene" id ="with-us">
+    <p data-depth="0.1" class="large-text large-large-text">WITH <span style="color:#12BDBD">US</span> </p>
+  </div>
+
+  <div class=" slider slider-one">
+    <div class="slider-content">
+      <img src="{% static "imgs/1-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/2-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/3-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/4-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/5-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/6-small.png" %}" alt="" class="slider-content-1">
+    </div>
+    <div class="slider-content">
+      <img src="{% static "imgs/7-small.png" %}" alt="" class="slider-content-1">
+    </div>
+
+  </div>
+
+  <div class=" slider slider-two">
+    <div class="slider-two-content">
+      <img src="{% static "imgs/1-medium.png" %}" alt="">
+    </div>
+    <div class="slider-two-content">
+      <img src="{% static "imgs/2-medium.png" %}" alt="">
+    </div>
+    <div class="slider-two-content">
+      <img src="{% static "imgs/3-medium.png" %}" alt="">
+    </div>
+    <div class="slider-two-content">
+      <img src="{% static "imgs/4-medium.png" %}" alt="">
+    </div>
+    <div class="slider-two-content">
+      <img src="{% static "imgs/5-medium.png" %}" alt="">
+    </div>
+    <div class="slider-two-content">
+      <img src="{% static "imgs/6-medium.png" %}" alt="">
+    </div>
+  </div>
+
+  <div class="slider slider-three">
+    <div class="slider-three-content">
+      <img src="{% static "imgs/1-large.png" %}" alt="" style="height: 420px;">
+    </div>
+    <div class="slider-three-content">
+      <img src="{% static "imgs/2-large.png" %}" alt="">
+    </div>
+
+    <div class="slider-three-content">
+      <img src="{% static "imgs/3-large.png" %}" alt="">
+    </div>
+
+  </div>-->
+
+  <div class="here-to-help">
+    <p class="here-to-help-text large-text">we're here to
+      <span style="color:white; background-color: rgba(0, 0,0,0);">help</span> </p>
+  </div>
+
+  <div class="logo-descr scene" style="pointer-events: auto!important;">
+    <div data-depth="0.1" class="positioned-thift-rect">
+      <div  class="rect rect-large rotate-half blur30"></div>
+    </div>
+    <div data-depth="0.15" class="logo-descr__text middle-text" style="pointer-events: auto!important;">
+      <p class="text-sett">We are here to help you start your own <span class="h">business</span>. The <span class="h">design</span> is one of the most <span class="h">important</span> parts here.
+      </p>
+      <div class="logo-descr__read-more-btn small-text"  style="z-index: 15;" style="pointer-events: auto!important;" onclick="window.location.href='{% url "about" %}';">
+        <p>Read more</p>
+        <img src="{% static "resources/triang.svg" %}" alt="" class="img-sett">
+      </div>
+    </div>
+    <img data-depth="0.05" onclick = "window.location.href = '{% url "about" %}'; console.log('shit')" src="{% static "resources/large-logo.svg" %}" alt="" style="width:50%; min-width:300px;">
+  </div>
+
+  <div class="order-logo-now scene">
+    <div data-depth="0.09" class = "rect-third-pos">
+      <div class="rect rect-medium rotate-half "></div>
+    </div>
+    <div data-depth="0.2" class="order-logo-now__text large-text">
+      Order a <span class="h">Logo</span> now
+    </div>
+    <div data-depth="0.2" class="order-logo-now__text light small-text">
+      and not only a logo
+    </div>
+    <div class = "rect-th-pos" data-depth="0.1">
+      <div class="rect rect-big rotate-40 blur20 "></div>
+    </div>
+  </div>
+
+  <div class="what-we-do">
+    <p class="what-we-do__text middle-text">
+      What we do:
+    </p>
+    <div class="what-we-do__content">
+      <div class="what-we-do__block">
+        <p class="what-we-do__block-content middle-text">3D MODELING</p>
+        <p class="what-we-do__block-content middle-text">ILLUSTRATING</p>
+        <p class="what-we-do__block-content middle-text">BRANDING</p>
+        <p class="what-we-do__block-content middle-text">WEB DEV</p>
+        <p class="what-we-do__block-content middle-text mobile-only">MARKETING</p>
+        <p class="what-we-do__block-content middle-text mobile-only">UX/UI</p>
+        <p class="what-we-do__block-content middle-text mobile-only">MOTION</p>
+        <p class="what-we-do__block-content middle-text mobile-only">ARTS</p>
+
+      </div>
+      <div class="what-we-do__block pc-only">
+        <p class="what-we-do__block-content middle-text">MARKETING</p>
+
+        <p class="what-we-do__block-content middle-text">UX/UI</p>
+
+        <p class="what-we-do__block-content middle-text">MOTION</p>
+
+        <p class="what-we-do__block-content middle-text">ARTS</p>
+      </div>
+    </div>
+  </div>
+  <div class="order-now-button__container" onclick = "window.location.href = '{% url "what-you-need" %}'">
+    <div class="order-now-button middle-text">
+      ORDER NOW
+    </div>
+  </div>
+
+
+  <script src=" {% static "js/parallax.js" %}"></script>
+
+  <script>
+    for (let i of document.getElementsByClassName("scene")){
+      new Parallax(i);
+    }
+
+    function inViewport (el) {
+
+    var r, html;
+    if ( !el || 1 !== el.nodeType ) { return false; }
+    html = document.documentElement;
+    r = el.getBoundingClientRect();
+
+    return ( !!r
+      && r.bottom >= 0
+      && r.right >= 0
+      && r.top <= html.clientHeight
+      && r.left <= html.clientWidth
+    );
+
+
+  }
+  flag = false;
+  window.onscroll = () => {
+    let el = document.getElementsByClassName("what-we-do__block-content");
+    for (let i of el) {
+      if (inViewport(i)){
+        i.style.transform = "translate(10%, 0px)"
+        console.log(i);
+      }
+      else{
+        i.style.transform = "translate(-100%, 0px)"
+      }
+    }
+    let dec_el = document.getElementById("decor-rect-trans");
+    if (inViewport(dec_el) && !flag){
+      setTimeout(()=> {
+        flag = true;
+      dec_el.style.transform = "translate(-100vw, -100vh) rotate(270deg) scale(25)";
+      dec_el.style.opacity = 0;
+      setTimeout(() => {
+      let interval = setTimeout((e) => {document.getElementById("with-us").scrollIntoView()}, 10);
+      setTimeout(() => {dec_el.style.display = "none"; clearInterval(interval)}, 1300)
+
+    }, 500);
+      }, 100)
+
+    }
+    else if (!flag){
+      dec_el.style.transform = "rotate(45deg)";
+    }
+  }
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static "js/carousel.js" %}"></script>
+{% endblock %}

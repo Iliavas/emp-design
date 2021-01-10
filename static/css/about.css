@@ -1,0 +1,117 @@
+body{
+  overflow: hidden;
+}
+html{
+  overflow: scroll;
+}
+*{
+  background-color: rgba(0, 0, 0, 0);
+}
+.high-green{
+  position: fixed;
+  overflow:visible;
+  width: max(75vw, 75vh);
+  height: max(75vh, 75vw);
+  background: linear-gradient(90deg, #20E3B2 0%, #12BDBD 100%);
+  border: 64px solid transparent;
+  border-image: linear-gradient(90deg, #189E7D 0%, #0F8686 100%);
+  border-image-slice: 1;
+  transform-origin: center;
+  bottom: min(-55vh, -55vw);
+  right: min(-55vw, -55vh);
+  transform: rotate(-45deg);
+  overflow: visible;
+}
+
+@media screen and (max-width:500px){
+  .high-green{
+    width: max(55vw, 55vh);
+    height: max(55vh, 55vw);
+    bottom: min(-45vh, -45vw);
+    right: min(-45vw, -45vh);
+    border: 32px solid transparent;
+    border-image: linear-gradient(90deg, #189E7D 0%, #0F8686 100%);
+    border-image-slice: 1;
+  }
+}
+
+.centered-content{
+  overflow: visible;
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.content{
+  position: fixed;
+  z-index: 2;
+  overflow: visible;
+  display: flex;
+  gap: 1.5vw;
+  flex-direction: column;
+  color: white;
+  font-family: Montserrat;
+  line-height: 7vh;
+  text-align: center;
+}
+.line{
+  height: max(2px, 0.2vw);
+  width: 7vw;  
+  margin: auto;
+  background-color : black;
+}
+.bigger-text{
+  width: 45vw;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: normal;
+}
+.fl{
+  line-height: normal;
+  text-align: right;
+  font-family: "Nanum Pen Script";
+}
+
+.rect-one-settings{
+  position: absolute;
+  z-index:1;
+  transform: rotate(76deg);
+  left: 50%;
+  margin-top: -15vw;
+}
+.rect-one-settings::before{
+  display: block;
+  content: "";
+  width:200%;
+  height:200%;
+  background-color: transparent;
+  mix-blend-mode: difference;
+  z-index:4;
+  opacity:0.6;
+  
+}
+
+.rect-two-settings{
+  bottom:120px;  
+  left:60px;
+  transform:rotate(18deg);
+}
+
+.other-content{
+  z-index:2;
+  mix-blend-mode: difference;
+  display: flex;
+  gap: 1.5vw;
+  flex-direction: column;
+  color:black;
+  filter: invert(0.8) grayscale(10) contrast(9);
+
+}
+
+.mt{
+  filter: contrast(9) grayscale(9);
+}

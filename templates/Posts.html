@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content_links %}
+      <link rel="stylesheet" href="{% static "css/our-projects.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        *{
+            color:white;
+        }
+        .proj-img-src{
+            height: 100%;
+        }
+    </style>
+    <div class="main-content">
+    <div class="our-proj">
+      Our <span style="color:#20E3B2">Projects</span>
+    </div>
+
+    <div class="proj-list" >
+        {% for post in posts %}
+            <div class="proj-ent" onclick = "window.location.href = '{% url "postDetails" name=post.title  %}'">
+            <div class="proj-img">
+                <img src="{{ post.image.url }}" alt="" class="proj-img-src">
+            </div>
+            <div class="proj-name">{{ post.title }}</div>
+            <div class="proj-descr">{{ post.type.name }}</div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+    {% endblock %}
+{% block footer %}
+{% endblock %}

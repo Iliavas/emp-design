@@ -1,0 +1,29 @@
+.small-small-text{
+  font-size: max(12px, 1.4vw);
+}
+
+.middle-text{
+  font-size: max(16px, 2vw);
+}
+.small-text{
+  font-size: max(12px, 1.5vw);
+}
+
+.large-text{
+  font-size: max(24px, 5vw);
+  font-family: Montserrat;
+  color: white;
+}
+.large-large-text{
+  font-size: max(48px, 8vw);
+}
+.big-text{
+  font-size: max(16px, 3vw);
+}
+.bold-text{
+  font-weight: 700;
+}
+
+.little-text{
+  font-size: max(8px, 0.9vw);
+}

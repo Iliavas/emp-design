@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content_links %}
+    <link rel="stylesheet" href="{% static "css/intro.css" %}">
+      <link rel="stylesheet" href="{% static "css/about.css" %}">
+{% endblock %}
+
+{% block content %}
+    <style>
+    *::-webkit-scrollbar{
+        display:none;
+    }
+    </style>
+    <div class="content">
+    <div class="white">EMPIRE <br> <span class="design">DESIGN</span> </div>
+    <div class="rect rect-big pos-one"></div>
+    <div class="rect rect-large pos-two"></div>
+    <div class="descr small-text">Your design - our job</div>
+    <button class="get-started middle-text" onclick = "window.location.href = '/index';">
+      GET STARTED
+    </button>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

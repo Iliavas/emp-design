@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/public.css" %}">
+    <link rel="stylesheet" href="{% static "css/header.css" %}">
+    <link rel="stylesheet" href="{% static "css/menu.css" %}">
+    <link rel="stylesheet" href="{% static "css/rects.css" %}">
+    <link rel="stylesheet" href="{% static "css/text.css" %}">
+    <link rel="stylesheet" href="{% static "css/footer.css" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    {% block content_links %}
+    {% endblock %}
+
+</head>
+<body>
+    {% block menu %}
+        <div id="menu">
+        <div class="menu-content">
+          <div class="oforml">
+            <div class="backdrop">
+              <div class="frontdrop">
+
+              </div>
+            </div>
+          </div>
+          <img src="{% static "resources/cross.svg" %}" alt="" class="cross-menu-content" id="cross">
+          <div class="text-menu-content first-text-menu" onclick = "window.location.href = '{% url "index" %}'">Home</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "get_all_posts" %}'">Projects</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "about" %}'">About</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "contact-us" type="other" %}'">Contact</div>
+
+        </div>
+      </div>
+    {% endblock %}
+    {% block header %}
+         <header id="header">
+            <div class="app-grad" id="grad"></div>
+            <div class="resources">
+              <img src="{% static  "resources/logo.svg" %}" alt="" class="head-img">
+              <img src="{% static "resources/menu.svg" %}" alt="" class="head-img df" id="menu-button">
+            </div>
+         </header>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+
+    <script>
+        document.getElementById("header").onclick = () => {
+            window.location.href = "#header";
+            console.log("ты гей")
+        }
+    </script>
+    <script src="{% static "js/menu.js" %}"></script>
+
+{% block footer %}
+        <footer>
+    <div class="footer__flex-content">
+      <div class="footer__contact-us middle-text">
+        <span>Contact Us</span>
+        <br>
+        <span class="small-text ma">empiredesigns2k20@gmail.com</span>
+      </div>
+      <div class="footer__follow-us big-text">
+        <p>
+          <span>
+           <span><span class="h">Follow</span> Us On</span>
+           <br>
+           <span class="footer__contacts">
+            <img src="{% static "resources/instagram.svg" %}" alt="" class="footer__contact">
+            <img src="{% static "resources/facebook.svg" %}" alt="" class="footer__contact">
+            <img src="{% static "resources/discord.svg" %}" alt="" class="footer__contact">
+           </span>
+          </span>
+        </p>
+
+        <div class="footer__activity" >
+          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "get_all_posts" %}'">
+            Works
+          </div>
+          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "about" %}'">
+            About Us
+          </div>
+          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "contact-us" type="other" %}'">
+            Contact Us
+          </div>
+        </div>
+
+      </div>
+          <img src="{% static "resources/up-arrow.svg" %}" alt="" class="footer__arrow-content" onclick="window.location.href='#header'" style="z-index:15;">
+    </div>
+
+  </footer>
+
+    {% endblock %}
+</body>
+</html>

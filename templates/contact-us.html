@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content_links %}
+    <link rel="stylesheet" href="{% static "css/contact-us.css" %}">
+{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <div class="content-text big-text">
+      Contact Us
+    </div>
+      <form action="{% url "contact-us-req" %}" method="POST">
+          {% csrf_token %}
+              <div class="contact-inputs">
+      <input type="fname" class="contact-inputs__input little-text" placeholder="Your Name" name="name">
+      <input type="lname" class="contact-inputs__input little-text" placeholder="Last Name" name="surname">
+      <input type="tel" class="contact-inputs__input little-text" placeholder="Phone" name="phone">
+      <input type="email" class="contact-inputs__input little-text" placeholder="Email" name="email">
+    </div>
+    <input type="text" class="contact-inputs__input little-text message-input" placeholder="Your Message" name="message">\
+    <button class="submit-button small-text" type="submit">
+      <p>Submit</p>
+      <img src="{% static "resources/long_right.svg" %}" alt="" class="submit-button__img">
+    </button>
+      </form>
+
+  </div>
+{% endblock %}
