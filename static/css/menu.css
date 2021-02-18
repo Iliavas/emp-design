@@ -11,6 +11,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+
 .backdrop{
   position: relative;
   background: linear-gradient(90deg, #189E7D 30%, #0F8686 100%);;
@@ -59,14 +60,20 @@
 }
 .text-menu-content{
   z-index:1;
-  font-size: max(min(56px, 5vw), 24px);
+  font-size: max(min(48px, 4vw), 24px);
   color:white;
   background-color: rgba(0, 0, 0, 0);
   margin-bottom: max(2vw, 24px);
   font-family: Montserrat;
   font-weight: 600;
 }
+@media (max-device-width:700px){
+  .text-menu-content{
+    font-weight:300!important;
+  }
+}
 
 .first-text-menu{
   margin-top: 7vw;
 }
+

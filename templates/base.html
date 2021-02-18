@@ -11,20 +11,23 @@
     <link rel="stylesheet" href="{% static "css/rects.css" %}">
     <link rel="stylesheet" href="{% static "css/text.css" %}">
     <link rel="stylesheet" href="{% static "css/footer.css" %}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600;700&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
 
     {% block content_links %}
     {% endblock %}
 
 </head>
 <body>
-    {% block menu %}
+<!--
         <div id="menu">
         <div class="menu-content">
           <div class="oforml">
@@ -38,16 +41,89 @@
           <div class="text-menu-content first-text-menu" onclick = "window.location.href = '{% url "index" %}'">Home</div>
           <div class="text-menu-content" onclick = "window.location.href = '{% url "get_all_posts" %}'">Projects</div>
           <div class="text-menu-content" onclick = "window.location.href = '{% url "about" %}'">About</div>
-          <div class="text-menu-content" onclick = "window.location.href = '{% url "contact-us" type="other" %}'">Contact</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "contact-us" type="other" errs=0 msg=0 %}'">Contact</div>
 
         </div>
-      </div>
+      </div>-->
+
+    {% block menu %}
+        <style>
+            #menu{
+              transition:0.7s;
+                width: 100vw;
+                height: 100vh;
+                overflow:visible;
+            }
+            .menu-back{
+                
+                transform-origin:center;
+                background: linear-gradient(90deg, #20E3B2 0%, #12BDBD 100%);
+                width:calc(1.41421 * (100vw + 100vh))!important;
+                height:calc(1.41421 * (100vw + 100vh))!important;
+                transform: rotate(45deg);
+                width: 100vw;
+                height: 100vh;
+                position: relative;
+                border-left-width: 64px;
+                border-style: solid;
+                border-image: linear-gradient(90deg, #189E7D 0%, #0F8686 100%) 0% 30%;
+            }
+            .menu-content{
+                position:fixed!important;
+                width:100vw;
+                height:100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0px;
+                left:0px;
+                z-index:4;
+                opacity:0;
+                gap:5vh;
+                display:none;
+            }
+            .text-menu-content:hover{
+              transform:scale(1.2);
+            }
+            #cross:hover{
+              transform:rotate(90deg);
+            }
+            .text-menu-content{
+              margin-bottom:0px;
+              font-size:64px;
+              font-weight:600;
+            }
+            .first-text-menu{
+              margin-top:50px;
+            }
+
+
+        </style>
+                <div class="menu-content" id="menu-content">
+                      <img src="{% static "resources/cross.svg" %}" alt="" class="cross-menu-content" id="cross">
+          <div class="text-menu-content first-text-menu" onclick = "window.location.href = '{% url "index" %}'">Home</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "get_all_posts" %}'">Projects</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "about" %}'">About</div>
+          <div class="text-menu-content" onclick = "window.location.href = '{% url "contact-us"  type="other" errs=0 msg=0 %}'">Contact</div>
+        </div>
+        <div id="menu">
+            <div class="menu-back"></div>
+
+        </div>
+
     {% endblock %}
     {% block header %}
+        <style>
+          .head-img{
+            width:48px!important;
+          }
+        </style>
          <header id="header">
             <div class="app-grad" id="grad"></div>
             <div class="resources">
-              <img src="{% static  "resources/logo.svg" %}" alt="" class="head-img">
+              <img src="{% static  "resources/logo-logo.svg" %}" alt="" class="head-img">
               <img src="{% static "resources/menu.svg" %}" alt="" class="head-img df" id="menu-button">
             </div>
          </header>
@@ -58,12 +134,129 @@
     <script>
         document.getElementById("header").onclick = () => {
             window.location.href = "#header";
-            console.log("ты гей")
         }
     </script>
     <script src="{% static "js/menu.js" %}"></script>
 
 {% block footer %}
+    <style>
+      .footer-hover{
+        display:inline-block;
+      }
+      .footer-hover:hover{
+        transform-origin:center;
+        transform:scale(1.2);
+      }
+      .footer__activity{
+        font-family:Poppins!important;
+        font-weight:400!important;
+      }
+      .footer__contact{
+        width:max(32px, 3.7vw)!important;
+        height:max(32px, 3.7vw)!important;
+      }
+      .footer__contact:hover{
+        transform:scale(1.2);
+      }
+      a{
+        overflow:visible;
+      }
+      span{
+        overflow:visible;
+      }
+      .footer__activity{
+        overflow:visible;
+      }
+      .footer__follow-us{
+        overflow:visible;
+      }
+      .footer__activity-text{
+        overflow:visible;
+      }
+      footer{
+        background-color:#131318;
+        margin-top: 10vw;
+      }
+      .footer__flex-content{
+        padding:1px;
+        height:100%;
+      }
+
+       *{
+        transition: 0.3s;
+    }
+
+    .trigger{
+        height: 20px;
+        width: 100vw;
+        position: fixed;
+        top:0px;
+        left:0px;
+    }
+
+    .cube_container{
+        width: 100vw;
+    }
+    .cube_dec_pos{
+        right: 50px;
+        transform: rotate(45deg);
+        filter: blur(3px);
+        /*top:-30px;*/
+        z-index: 100;
+    }
+
+    #here-to-help-cont{
+        margin-top: -5vw;
+        position: absolute;
+    }
+    #cube-text{
+        color: white;
+        position: relative;
+        float:right;
+        top:200px;
+        opacity:0;
+        font-weight: 600;
+    }
+
+    .logo-descr__read-more-btn:hover{
+        opacity:0.7;
+    }
+
+    .order-now-button{
+      font-style:italic;
+    }
+
+    .what-we-do__block-content{
+      font-style:italic;
+    }
+
+    .logo-descr__text{
+      min-width:300px!important;
+    }
+
+    .logo-descr__content{
+      display:grid;
+      width:70%;
+      grid-template-columns:1fr 1fr;
+      justify-content:row-end;
+      justify-items:center;
+      align-items:center;
+      grid-gap:10vw;
+    }
+    @media (max-device-width:1200px){
+      .logo-descr__content{
+        grid-template-columns:1fr!important;
+      }
+    }
+    @media (max-device-width:1320px){
+      .positioned-thift-rect{
+        display:none;
+      }
+    }
+    .cube-dec-pos{
+      position:absolute!important;
+    }
+    </style>
         <footer>
     <div class="footer__flex-content">
       <div class="footer__contact-us middle-text">
@@ -72,27 +265,33 @@
         <span class="small-text ma">empiredesigns2k20@gmail.com</span>
       </div>
       <div class="footer__follow-us big-text">
-        <p>
-          <span>
-           <span><span class="h">Follow</span> Us On</span>
+        <p style="overflow:visible;">
+          <span style="overflow:visible;">
+           <span style="margin-bottom:32px; display:inline-block;"><span class="h">Follow</span> Us On</span>
            <br>
            <span class="footer__contacts">
-            <img src="{% static "resources/instagram.svg" %}" alt="" class="footer__contact">
-            <img src="{% static "resources/facebook.svg" %}" alt="" class="footer__contact">
-            <img src="{% static "resources/discord.svg" %}" alt="" class="footer__contact">
+            <a href="https://www.instagram.com/empire_designss/?hl=en" ><img src="{% static "resources/instagram.svg" %}" alt="" class="footer__contact" ></a>
+            <a href="https://www.facebook.com/empire.designs2020"><img src="{% static "resources/facebook.svg" %}" alt="" class="footer__contact"></a>
+            <a href="https://discord.gg/njRgZVKh"><img src="{% static "resources/discord.svg" %}" alt="" class="footer__contact"></a>
            </span>
           </span>
         </p>
 
         <div class="footer__activity" >
-          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "get_all_posts" %}'">
-            Works
+          <div class="footer__activity-text small-text" onclick="window.location.href = '{% url "get_all_posts" %}'">
+          <p class="footer-hover">Works</p>
           </div>
-          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "about" %}'">
-            About Us
+          <div class="footer__activity-text small-text" onclick="window.location.href = '{% url "about" %}'">
+          <p class="footer-hover">
+          About Us
+          </p>
+            
           </div>
-          <div class="footer__activity-text middle-text" onclick="window.location.href = '{% url "contact-us" type="other" %}'">
-            Contact Us
+          <div class="footer__activity-text small-text" onclick="window.location.href = '{% url "contact-us" type="other"  type="other" errs=0 msg=0 %}'">
+          <p class="footer-hover">
+           Contact Us
+          </p>
+           
           </div>
         </div>
 
@@ -101,6 +300,7 @@
     </div>
 
   </footer>
+
 
     {% endblock %}
 </body>

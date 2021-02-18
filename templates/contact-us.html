@@ -7,24 +7,350 @@
 {% endblock %}
 
 {% block content %}
+    <style>
+    .contact-inputs__input{
+        padding:0px;
+        font-weight: 200;
+        border-bottom: 1px solid white;
+        color:#C6C6C6;
+        padding:6px!important;
+        font-size:24px;
+    }
+    .contact-inputs__input::placeholder{
+        font-weight: 200;
+    }
+    .contact-inputs__text{
+        color:white; font-family: Montserrat; font-weight: 600; margin-bottom: 42px;
+    }
+    .danger-message{
+            background-color: red;
+            padding: 10px 50px;
+            color: white;
+            border-radius: 5px;
+            display: flex;
+            gap: 1%;
+            align-items: center;
+            font-family: Montserrat;
+            font-weight: 300;
+        }
+    .danger-message__img{
+            width: 24px;
+    }
+
+    .succes-message{
+        background-color: green;
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    .contact-inputs__text{
+      font-weight:700;
+      font-family:Montserrat; 
+      margin:0px;
+      color:#C6C6C6;  
+      margin-bottom:24px; 
+      font-size:32px;
+    }
+  .content-text{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:30px;
+  }
+
+  .form-danger{
+    background-color: #dd3c3c;
+    height:100%;
+    display:inline-block;
+    padding: 7px 26px;
+    color: white;
+    font-family: Roboto;
+    font-weight: 300;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    border-radius:2px;
+  }
+
+  .content-text{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+  }
+  .form{
+    background-color:#2CDC92;
+  }
+  .message-input{
+    padding:10px;
+  }
+  .contact-inputs__container{
+    min-width:300px;
+    width:100%;
+  }
+  .contact-inputs{
+    display:flex!important;
+    flex-wrap:wrap;
+    flex-direction:row;
+    gap:100px;
+  }
+  .grid-content{
+    display:grid; gap:30px; grid-template-columns: 1fr 1fr; justify-content:center; width:100%;
+  }
+
+  @media (max-width: 1422px){
+    .grid-content{
+      grid-template-columns:1fr;
+      grid-gap:100px;
+    }
+  }
+  .option__container{
+    width: 100%;
+    display:none;
+
+  }
+  .selection__container{
+    background-color: black;
+    border: none;
+    outline:none;
+    border-bottom: 1px solid #C4C4C4;
+    background-image: url({% static "imgs/caret_down.svg" %});
+    background-repeat:no-repeat;
+    background-position:right;
+  }
+  .selection__container:selected{
+    border:none;
+    outline:none;
+        background: rgba(33, 33, 33, 0.8);
+
+  }
+
+  .option{
+    display:block;
+    background: rgba(33, 33, 33, 0.8);
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+    color: white;
+  }
+
+  .container-list{
+    background-color: white;
+  }
+  *, *:after, *:before {
+     box-sizing: border-box;
+  }
+
+
+  .custom-select-wrapper {
+     position: relative;
+     user-select: none;
+     width: 100%;
+}
+ .custom-select {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     font-family:Montserrat;
+     font-weight: 600;
+     color: white!important;
+}
+ .custom-select__trigger {
+     position: relative;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     font-size: 20px;
+     font-weight: 300;
+     color: #3b3b3b;
+     line-height: 60px;
+     background: #ffffff;
+     cursor: pointer;
+     border-bottom: 1px solid #c4c4c4;
+     background-color: black;
+}
+ .custom-options {
+     display: none;
+     top: 100%;
+     left: 0;
+     right: 0;
+     border-top: 0;
+     background: #fff;
+     transition: all 0.5s;
+     pointer-events: none;
+     z-index: 2;
+     opacity:0;
+}
+ .custom-select.open .custom-options {
+     opacity: 1;
+     visibility: visible;
+     pointer-events: all;
+     display:block;
+}
+ .custom-option {
+     position: relative;
+     display: block;
+     font-size: 22px;
+     font-weight: 300;
+     color: #3b3b3b;
+     line-height: 60px;
+     cursor: pointer;
+     transition: all 0.5s;
+     border-bottom: 1px solid #e4e4e4;
+     font-family:Montserrat;
+     font-weight:600;
+     color: white;
+}
+ .custom-option:hover {
+     cursor: pointer;
+     background-color: #b2b2b2;
+}
+ .custom-option.selected {
+}
+.custom-options{
+  background: rgba(33, 33, 33, 0.8);
+  padding: 23px 20px;
+
+}
+
+.selected__container{
+  font-family:Montserrat;
+  font-weight:600;
+  color:white;
+}
+
+.custom-select__trigger{
+  background-image:url({% static "imgs/caret_down.svg" %});
+  background-repeat:no-repeat;
+  background-position:right;
+}
+
+  @media(max-width:1420px) {
+    .option__container{
+      display:block;
+    }
+  }
+    </style>
   <div class="content">
+
     <div class="content-text big-text">
-      Contact Us
+    <div>
+      Contact  <span style="color:#19D0B8;">Us<span/>
     </div>
-      <form action="{% url "contact-us-req" %}" method="POST">
+    {% if errs == "1" %}
+    
+      <div class="form-danger small-small-text">
+       <p>Please fill all the blanks!</p>
+       <img src="{% static "resources/off_close.svg" %}" alt="" id="cross-message"> 
+      </div>
+    
+
+    {% endif %}
+
+    {% if msg == "1" %}
+    
+      <div class="form-danger form small-small-text">
+        <p>Your message have been sent!</p>
+        <img src="{% static "resources/check.svg" %}" alt=""> 
+      </div>
+    
+    {% endif %}
+    </div>
+
+
+      <form method="POST" action="{% url 'contact-us-req' %}" id="form">
           {% csrf_token %}
-              <div class="contact-inputs">
-      <input type="fname" class="contact-inputs__input little-text" placeholder="Your Name" name="name">
-      <input type="lname" class="contact-inputs__input little-text" placeholder="Last Name" name="surname">
+              <div class="contact-inputs" style="margin-bottom:0px!important;">
+      <div class="grid-content">
+        <div class="contact-inputs__container">
+          <div class="small-small-text contact-inputs__text">First Name <span style="color:#58DD94;">*<span/></div>
+            <input type="fname" class="contact-inputs__input little-text" style="display: block; width:100%;" placeholder="" name="name">
+      </div>
+      <div class="contact-inputs__container">
+          <div class="small-small-text contact-inputs__text">Last Name <span style="color:#58DD94;">*<span/></div>
+            <input type="lname" class="contact-inputs__input little-text" style="display: block; width:100%;" placeholder="" name="surname">
+      </div>
+      </div>
+      <div class="option__container">
+        <div class="small-small-text contact-inputs__text">Category <span style="color:#58DD94;">*<span/></div>
+        <div class="custom-select-wrapper">
+          <div class="custom-select">
+            <div class="custom-select__trigger"><span class="selected__container">Other</span>
+              <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+                <span class="custom-option selected" data-value="Logo">Logo</span>
+                <span class="custom-option" data-value="Art">Art</span>
+                <span class="custom-option" data-value="Website">Website</span>
+                <span class="custom-option" data-value="3d">3D</span>
+                <span class="custom-option" data-value="Other">Other</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-content">
+        <div class="contact-inputs__container">
+          <div class="small-small-text contact-inputs__text">Phone</div>
+            <input type="tel" class="contact-inputs__input little-text" style="display: block; width:100%;" placeholder="" name="phone" >
+      </div>
+                        <div class="contact-inputs__container">
+          <div class="small-small-text contact-inputs__text">Email <span style="color:#58DD94;">*<span/></div>
+            <input type="email" class="contact-inputs__input little-text" style="display: block; width:100%; color:#C6C6C6;" placeholder="" name="email">
+      </div>
+      </div>
+        
+                        <div>
+      <!--<input type="lname" class="contact-inputs__input little-text" placeholder="Last Name" name="surname">
       <input type="tel" class="contact-inputs__input little-text" placeholder="Phone" name="phone">
-      <input type="email" class="contact-inputs__input little-text" placeholder="Email" name="email">
+      <input type="email" class="contact-inputs__input little-text" placeholder="Email" name="email" required>-->
     </div>
-    <input type="text" class="contact-inputs__input little-text message-input" placeholder="Your Message" name="message">\
+  </div>
+      <div class="small-small-text contact-inputs__text" style="margin-bottom:24px;">Your message <span style="color:#58DD94;">*<span/></div>
+        <textarea type="text" class="contact-inputs__input little-text message-input contact-inputs__container" placeholder="" name="message"
+        style="padding:0px!important; resize:vertical;"></textarea>
     <button class="submit-button small-text" type="submit">
       <p>Submit</p>
       <img src="{% static "resources/long_right.svg" %}" alt="" class="submit-button__img">
     </button>
       </form>
+    </div>
 
   </div>
+
+    <script>
+      cross = document.getElementById("cross-message")
+      cross.onclick = () => {
+        cross.parentNode.style = "display:none;"
+      }
+    </script>
+
+    <script>
+      console.log("fuck you")
+      document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
+        this.querySelector('.custom-select').classList.toggle('open');
+        console.log("shit")
+      })
+
+      for (const option of document.querySelectorAll(".custom-option")) {
+        option.addEventListener('click', function() {
+            if (!this.classList.contains('selected')) {
+                this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
+                this.classList.add('selected');
+                this.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
+            }
+        })
+      }
+
+      window.addEventListener('click', function(e) {
+    const select = document.querySelector('.custom-select')
+    if (!select.contains(e.target)) {
+        select.classList.remove('open');
+    }
+});
+
+
+    
+    </script>
 {% endblock %}

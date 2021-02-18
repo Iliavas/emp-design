@@ -10,16 +10,46 @@
     *::-webkit-scrollbar{
         display:none;
     }
+    .enable-pe{
+        pointer-events: all!important;
+    }
+    .white{
+        font-size:196px!important;
+        line-height:148px!important;
+    }
+    .design{
+        font-size:148px!important;
+    }
+    .descr{
+        font-size: 32px!important;
+        line-height:32px!important;
+    }
+    .get-started{
+        margin-top:128px;
+        font-size:56px!important;
+        border-radius:50px!important;
+    }
     </style>
-    <div class="content">
-    <div class="white">EMPIRE <br> <span class="design">DESIGN</span> </div>
-    <div class="rect rect-big pos-one"></div>
-    <div class="rect rect-large pos-two"></div>
-    <div class="descr small-text">Your design - our job</div>
-    <button class="get-started middle-text" onclick = "window.location.href = '/index';">
+    <div class="content enable-pe" id="scene">
+    <div class="white" style="font-size:max(13vw, 128px); line-height:10vw;" data-depth="0.2">EMPIRE <br> <span class="design" style="font-size:11vw;">STUDIOS</span> </div>
+        <div class="pos-one" data-depth="0.5" style="overflow:visible; position:absolute;">
+                <div class="pos-one rect rect-big "></div>
+        </div>
+        <div class="" style="overflow:visible; position:absolute; width:100%; bottom:10px;" data-depth="0.15">
+            <div class="rect rect-large pos-two" style="position:fixed;"></div>
+        </div>
+
+    <div class="descr small-text" data-depth="0.3">Your design - our job</div>
+    <button class="get-started middle-text" style="position:relative;" onclick = "window.location.href = '/index';" data-depth="0.25">
       GET STARTED
     </button>
   </div>
+
+    <script src="{% static 'js/parallax.js' %}"></script>
+    <script>
+        var scene = document.getElementById("scene")
+        new Parallax(scene)
+    </script>
 {% endblock %}
 
 {% block footer %}

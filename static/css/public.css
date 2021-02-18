@@ -5,6 +5,7 @@
   overflow-x:hidden;
   transition:0.3s;
   outline: none;
+  cursor: default!important;
 }
 
 ::-webkit-scrollbar{

@@ -9,30 +9,42 @@
 {% block content %}
     <div class="content">
     <div class="rect rect-medium pos-first" style="position:absolute!important;"></div>
-
-    <div class="content__descr-text middle-text">
+    <style>
+      @font-face{
+        font-family: "Archieve";
+        src: url('{% static "fonts/archieve.otf" %}');
+      }
+      .content__text{
+        font-family:"Archieve";
+        font-weight:400;
+      }
+      .content__content{
+        gap:64px!important;
+      }
+    </style>
+    <div class="content__descr-text middle-text" style="font-size:32px;">
       First, tell us what you need
     </div>
     <div class="content__content">
-      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='art' %}'">
+      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='art' errs=0 msg=0 %}'">
         <img src="{% static "resources/art.svg" %}" alt="" class="content__item">
-        <p class="big-text content__text">Art</p>
+        <p class="middle-text content__text">Art</p>
       </div>
-      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='3d' %}'">
+      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='3d' errs=0 msg=0%}'">
         <img src="{% static "resources/cube.svg" %}" alt="" class="content__item">
-        <p class="big-text content__text">3D</p>
+        <p class="middle-text content__text">3D</p>
       </div>
-      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='logo' %}'">
-        <img src="{% static "resources/logo_zakaz.svg" %}" alt="" class="content__item">
-        <p class="big-text content__text">Logo</p>
+      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='logo' errs=0 msg=0 %}'">
+        <img src="{% static "resources/logo.svg" %}" alt="" class="content__item">
+        <p class="middle-text content__text">Logo</p>
       </div>
-      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='web' %}'">
+      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='web' errs=0 msg=0 %}'">
         <img src="{% static "resources/web.svg" %}" alt="" class="content__item">
         <p class="middle-text content__text">UX/UI</p>
       </div>
-      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='other' %}'">
-        <img src="{% static "resources/idk.svg" %}" alt="" class="content__item">
-        <p class="middle-text content__text">Other/<br> question</p>
+      <div class="content-item__container" onclick = "window.location.href = '{% url 'contact-us' type='other' errs=0 msg=0 %}'">
+        <img src="{% static "resources/other.svg" %}" alt="" class="content__item">
+        <p class="small-text content__text">Other/<br> question</p>
       </div>
     </div>
   </div>

@@ -8,22 +8,33 @@
 
 {% block content %}
     <div class="centered-content">
-    <div class="content">
-
-      <div class="rect rect-big rect-one-settings">
+    <div class="content" id="scene">
+        <div style="overflow:visible;" class="rect-one-settings" data-depth="0.1">
+                  <div class="rect rect-big" style="  transform: rotate(76deg); width:150px; height:150px;
+">
 
       </div>
-      <div class="other-content">
-        <p class="middle-text bold-text mt">About Us</p>
+        </div>
+
+      <div class="other-content" data-depth="0.3">
+        <p class="middle-text bold-text mt" style="font-size:48px;">About Us</p>
         <div class="line"></div>
-        <p class="small-text bigger-text">Empire Designs is a small design agency. We make design for businesses and companies like us.Our designers are from different parts of the world and this is even easier for us. We help each other, we work as a team.
+        <p class="small-text bigger-text" style="font-size:36px;">Empire Designs is a small design agency. We make design for businesses and companies like us.Our designers are from different parts of the world and this is even easier for us. We help each other, we work as a team.
           And we are ready to help you.</p>
-        <p class="small-text fl">Your design - our job</p>
+        <p class="small-text fl" style="font-size:32px;">Your design - our job</p>
       </div>
+        <div class="rect-two-settings" style="overflow:visible;" data-depth="0.2">
+                  <div class="  rect rect-medium " style="position: fixed; transform:rotate(18deg);"></div>
 
-      <div class=" rect-two-settings rect rect-medium " style="position: fixed;"></div>
+        </div>
     </div>
   </div>
+
+    <script src="{% static 'js/parallax.js' %}"></script>
+    <script>
+        scene = document.getElementById("scene")
+        new Parallax(scene)
+    </script>
 {% endblock %}
 
 {% block footer %}

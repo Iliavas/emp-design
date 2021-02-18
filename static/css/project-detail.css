@@ -54,7 +54,7 @@ html,body {
   margin-top: 20vh;
   display: flex;
   flex-direction: column;
-  gap: 30vh;
+  gap: 200px;
 }
 
 .normal-element {
@@ -63,7 +63,7 @@ html,body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 20%;
+  gap: 200px;
   flex-wrap:wrap-reverse;
 }
 
@@ -88,12 +88,21 @@ html,body {
 }
 
 .process-img{
-  width:480px;
+  width:420px;
   height: 240px;
   background-color: white;
   border-radius: 1vw;
   padding: 0;
   margin:0;
+}
+@media screen and (max-width:1035px){
+  .process-img{
+    width:100%;
+    height: 100%;
+  }
+  .descr-content{
+    width:100%;
+  }
 }
 
 .reverse{

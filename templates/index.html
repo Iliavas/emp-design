@@ -9,6 +9,77 @@
     *{
         transition: 0.3s;
     }
+
+    .trigger{
+        height: 20px;
+        width: 100vw;
+        position: fixed;
+        top:0px;
+        left:0px;
+    }
+
+    .cube_container{
+        width: 100vw;
+    }
+    .cube_dec_pos{
+        right: 50px;
+        transform: rotate(45deg);
+        filter: blur(3px);
+        /*top:-30px;*/
+        z-index: 100;
+    }
+
+    #here-to-help-cont{
+        margin-top: -5vw;
+        position: absolute;
+    }
+    #cube-text{
+        color: white;
+        position: relative;
+        float:right;
+        top:200px;
+        opacity:0;
+        font-weight: 600;
+    }
+
+    .logo-descr__read-more-btn:hover{
+        opacity:0.7;
+    }
+
+    .order-now-button{
+      font-style:italic;
+    }
+
+    .what-we-do__block-content{
+      font-style:italic;
+    }
+
+    .logo-descr__text{
+      min-width:300px!important;
+    }
+
+    .logo-descr__content{
+      display:grid;
+      width:70%;
+      grid-template-columns:1fr 1fr;
+      justify-content:row-end;
+      justify-items:center;
+      align-items:center;
+      grid-gap:10vw;
+    }
+    @media (max-device-width:1200px){
+      .logo-descr__content{
+        grid-template-columns:1fr!important;
+      }
+    }
+    @media (max-device-width:1320px){
+      .positioned-thift-rect{
+        display:none;
+      }
+    }
+    .cube-dec-pos{
+      position:absolute!important;
+    }
     </style>
     <div class="start-business-part scene">
     <div data-depth="0.2" class="first-rect-position rect-large">
@@ -22,10 +93,16 @@
     </div>
 
   </div>
-  <div class="rect rect-big blur2" id="decor-rect-trans"></div>
-  <div class="with-us-block scene" id ="with-us">
+    <div class="cube_container" id="cube_container">
+    </div>
+              <div class="rect rect-big cube_dec_pos" id="cube" style="filter:blur(0px)!important;">
+
+              </div>
+                      <div id="cube-text" class="large-text large-large-text">With <span style="color:#12BDBD">US</span></div>
+    <div style="margin-bottom: min(1000px, 120vh);"></div>
+  <!--<div class="with-us-block scene" id ="with-us" style="margin-top: 40vh;">
     <p data-depth="0.1" class="large-text large-large-text">WITH <span style="color:#12BDBD">US</span> </p>
-  </div>
+  </div>-->
 
   <div class=" slider slider-one">
     <div class="slider-content">
@@ -52,7 +129,7 @@
 
   </div>
 
-  <div class=" slider slider-two">
+  <div class=" slider slider-two" >
     <div class="slider-two-content">
       <img src="{% static "imgs/1-medium.png" %}" alt="">
     </div>
@@ -69,11 +146,11 @@
       <img src="{% static "imgs/5-medium.png" %}" alt="">
     </div>
     <div class="slider-two-content">
-      <img src="{% static "imgs/6-medium.png" %}" alt="">
+      <img src="{% static "imgs/6-medium.png" %}" wealt="">
     </div>
   </div>
 
-  <div class="slider slider-three">
+  <div class="slider slider-three" style="z-index:0!important;">
     <div class="slider-three-content">
       <img src="{% static "imgs/1-large.png" %}" alt="" style="height: 420px;">
     </div>
@@ -85,26 +162,36 @@
       <img src="{% static "imgs/3-large.png" %}" alt="">
     </div>
 
-  </div>-->
+  </div>
+    <div class="project__container">
+            <button class="order-now-button small-text" style="border:none; margin: 3vw 0px; font-style:normal;" onclick="
+            window.location.href = '{% url "get_all_posts" %}'
+">Projects</button>
 
-  <div class="here-to-help">
-    <p class="here-to-help-text large-text">we're here to
+    </div>
+    <div id="here-to-help-cont">
+    </div>
+  <div class="here-to-help" id="here-to-help" style="z-index:100; position:absolute;">
+    <p class="here-to-help-text large-text" >we're here to
       <span style="color:white; background-color: rgba(0, 0,0,0);">help</span> </p>
   </div>
 
-  <div class="logo-descr scene" style="pointer-events: auto!important;">
+  <div class="logo-descr scene" style="pointer-events: auto!important; margin-top:40vh;">
     <div data-depth="0.1" class="positioned-thift-rect">
       <div  class="rect rect-large rotate-half blur30"></div>
     </div>
-    <div data-depth="0.15" class="logo-descr__text middle-text" style="pointer-events: auto!important;">
-      <p class="text-sett">We are here to help you start your own <span class="h">business</span>. The <span class="h">design</span> is one of the most <span class="h">important</span> parts here.
+    <div class="logo-descr__content">
+      <div data-depth="0.15" class="logo-descr__text middle-text" style="pointer-events: auto!important; width:100%!important;">
+      <p class="text-sett" style="font-size:26px; width:100%!important;">We are here to help you start your own <span class="h">business</span>. The <span class="h">design</span> is one of the most <span class="h">important</span> parts here.
       </p>
-      <div class="logo-descr__read-more-btn small-text"  style="z-index: 15;" style="pointer-events: auto!important;" onclick="window.location.href='{% url "about" %}';">
+      <div class="logo-descr__read-more-btn"  style="z-index: 15; font-size:24px;" style="pointer-events: auto!important;" onclick="window.location.href='{% url "about" %}';">
         <p>Read more</p>
         <img src="{% static "resources/triang.svg" %}" alt="" class="img-sett">
       </div>
     </div>
-    <img data-depth="0.05" onclick = "window.location.href = '{% url "about" %}'; console.log('shit')" src="{% static "resources/large-logo.svg" %}" alt="" style="width:50%; min-width:300px;">
+    <img data-depth="0.05" onclick = "window.location.href = '{% url "about" %}'; console.log('shit')" src="{% static "resources/large-logo.svg" %}" alt="" style="width:80%; min-width:300px;">
+    </div>
+    
   </div>
 
   <div class="order-logo-now scene">
@@ -112,10 +199,7 @@
       <div class="rect rect-medium rotate-half "></div>
     </div>
     <div data-depth="0.2" class="order-logo-now__text large-text">
-      Order a <span class="h">Logo</span> now
-    </div>
-    <div data-depth="0.2" class="order-logo-now__text light small-text">
-      and not only a logo
+      Order <span style="color:#12BDBD">now</span>
     </div>
     <div class = "rect-th-pos" data-depth="0.1">
       <div class="rect rect-big rotate-40 blur20 "></div>
@@ -154,9 +238,15 @@
       ORDER NOW
     </div>
   </div>
+    <div class="trigger" id="trigger"></div>
 
 
-  <script src=" {% static "js/parallax.js" %}"></script>
+    <script src=" {% static "js/parallax.js" %}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+
 
   <script>
     for (let i of document.getElementsByClassName("scene")){
@@ -185,30 +275,38 @@
     for (let i of el) {
       if (inViewport(i)){
         i.style.transform = "translate(10%, 0px)"
-        console.log(i);
       }
       else{
         i.style.transform = "translate(-100%, 0px)"
       }
     }
-    let dec_el = document.getElementById("decor-rect-trans");
-    if (inViewport(dec_el) && !flag){
-      setTimeout(()=> {
-        flag = true;
-      dec_el.style.transform = "translate(-100vw, -100vh) rotate(270deg) scale(25)";
-      dec_el.style.opacity = 0;
-      setTimeout(() => {
-      let interval = setTimeout((e) => {document.getElementById("with-us").scrollIntoView()}, 10);
-      setTimeout(() => {dec_el.style.display = "none"; clearInterval(interval)}, 1300)
-
-    }, 500);
-      }, 100)
-
-    }
-    else if (!flag){
-      dec_el.style.transform = "rotate(45deg)";
-    }
   }
+
+  var controller = new ScrollMagic.Controller();
+  //let tween = TweenMax.to("#cube", 3, {scale: 2, repeat: 1, yoyo: true})
+    let tw = new TimelineMax().from("#cube", 0.1, {scale: 1})
+    .to("#cube", 1.5, {scale: 5, yoyo: true})
+           .from("#cube-text", 0, {translateX: "0", opacity:0})
+        .to("#cube-text", 1, {translateX: "-50vw", opacity:1})
+  new ScrollMagic.Scene({
+      offset: 0,
+      duration: 300,
+      triggerElement: "#cube_container"
+  }).setTween(tw)
+    .addTo(controller)
+
+
+    tw = new TimelineMax().from("#here-to-help", 0.0, {translateY: "0"})
+        .to("#here-to-help", 1, {translateY: "-60vh", yoyo: true})
+
+
+    new ScrollMagic.Scene({
+        offset:0,
+        duration: 300,
+        triggerElement: "#here-to-help-cont"
+    }).setTween(tw)
+    .addTo(controller)
+
 </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="{% static "js/carousel.js" %}"></script>

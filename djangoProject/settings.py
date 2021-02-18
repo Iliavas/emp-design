@@ -25,7 +25,7 @@ SECRET_KEY = 'we1=xc@(q&*=dt#=-@f$w3ge3=n73afi8b+tj(v04l1grd=n7t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -59,6 +59,7 @@ TEMPLATES = [
         ,
         'APP_DIRS': True,
         'OPTIONS': {
+
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

@@ -81,7 +81,7 @@ html{
   z-index:1;
   transform: rotate(76deg);
   left: 50%;
-  margin-top: -15vw;
+  margin-top: -200px;
 }
 .rect-one-settings::before{
   display: block;
@@ -98,7 +98,6 @@ html{
 .rect-two-settings{
   bottom:120px;  
   left:60px;
-  transform:rotate(18deg);
 }
 
 .other-content{

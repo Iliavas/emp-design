@@ -22,7 +22,7 @@
   overflow: visible;
 }
 .contact-inputs__input:focus{
-  border-bottom: 2px solid #12BDBD;
+  border-bottom: 1px solid #12BDBD;
 }
 
 

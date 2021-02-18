@@ -33,6 +33,21 @@
         justify-content: center;
         align-items: center;
     }
+
+    .descr-content{
+      font-family:Poppins;
+      
+      font-weight:400;line-height:32px;
+      font-size:22px;
+      color:#FBFBFF!important;
+    }
+    .process-text{
+      font-weight:400;
+      line-height:32px;
+    }
+    .normal-element{
+      gap:200px;
+    }
 </style>
         <div class="main-content">
     <div class="name">{{ post.title }}</div>
@@ -49,8 +64,8 @@
     <div class="creation-process">
     {% for elem in stack %}
         {% if forloop.counter|divisibleby:2 %}
-                    <div class="normal-element">
-        <div class="process-text">
+                    <div class="normal-element" style="padding:0px; margin:0px;">
+        <div class="process-text descr-text">
           <span style="vertical-align: middle;">
             {{ elem.name }}
           </span>
@@ -60,7 +75,7 @@
         </div>
       </div>
         {% else %}
-            <div class="normal-element reverse">
+            <div class=" normal-element reverse ">
         <div class="process-text">
           <span style="vertical-align: middle;">
             {{ elem.name }}
@@ -94,7 +109,7 @@
       <div class="video-content">
           <iframe src="{{ url }}" frameborder="0" width="100%" height="100%"></iframe>
       </div>
-      <button class="order-now small-text" onclick="window.location.href='{% url 'contact-us' type="other" %}'">ORDER NOW</button>
+      <button class="order-now small-text" onclick="window.location.href='{% url 'contact-us' type="other" msg="0" errs="0" %}'">ORDER NOW</button>
     </div>
 
 
